@@ -80,6 +80,6 @@ export const Home = () => {
     //   // }, []);
 
   return <div>
-     <div> <CardComponent sports={sports}></CardComponent> </div> 
+     <div> <CardComponent sports={sports}>s</CardComponent> </div> 
   </div>;
 };
