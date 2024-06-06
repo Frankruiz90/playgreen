@@ -1,0 +1,101 @@
+@import "../../../assets/scss/main.scss";
+
+// .card {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 5vh;
+//     &-container {
+//         height: 844px;
+//         position: relative;
+//         width: 24.375rem;
+//         padding: 1.25rem;
+//         max-width: 85vw;
+//         border-radius: 2.25rem;
+
+//     }
+
+//   &-sport {
+//     position: relative;
+//     border-radius: 2rem;
+//     height: 564px;
+//     background-size: cover;
+//     background-position: center;
+
+//     &__text {
+//       position: absolute;
+//       color: white;
+//       width: 100%;
+//       border-radius: 0 0 2rem 2rem;
+//       bottom: 0px;
+//       text-align: left;
+//       height: 100px;
+//       align-content: center;
+//       background: linear-gradient(
+//         360deg,
+//         #000000 0%,
+//         #000000 58.85%,
+//         rgba(0, 0, 0, 0) 100%
+//       );
+//     }
+//   }
+// }
+// .swipe {
+//     position: absolute;
+//     width: 24.375rem;
+
+// }
+
+.swipe {
+  position: absolute;
+}
+
+.card-container {
+  width: 24.375rem;
+  max-width: 24.375rem;
+  height: 580px;
+}
+
+.card {
+  position: relative;
+  width: 80vw;
+  max-width: 24.375rem;
+  height: 35.25rem;
+  border-radius: 2.25rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 2rem 2rem;
+    text-align: left;
+    height: 100px;
+    align-content: center;
+    color: $white-text;
+    background: linear-gradient(
+      360deg,
+      #000000 0%,
+      #000000 58.85%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    & h3 {
+      margin-left: 1.3125rem !important;
+      font-size: 34px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 41.49px;
+    }
+  }
+}
+
+.buttons {
+  width: 50%;
+  margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
