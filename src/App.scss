@@ -1,5 +1,11 @@
+@import '../src/assets/scss/main.scss';
 .App {
   text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color: $black-color;
 }
 
 .App-logo {

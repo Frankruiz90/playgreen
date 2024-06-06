@@ -1,0 +1,62 @@
+@import "../../../assets/scss/main.scss";
+
+.swipe {
+  position: absolute;
+}
+
+.card-container {
+  width: 24.375rem;
+  max-width: 24.375rem;
+  height: 680px;
+  position: relative;
+}
+
+.card {
+  position: relative;
+  width: 80vw;
+  max-width: 24.375rem;
+  height: 35.25rem;
+  border-radius: 2.25rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  &-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 2rem 2rem;
+    text-align: left;
+    height: 100px;
+    align-content: center;
+    color: $white-text;
+    background: linear-gradient(
+      360deg,
+      #000000 0%,
+      #000000 58.85%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    & h3 {
+      margin-left: 1.3125rem !important;
+      font-size: 34px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 41.49px;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .btn-rounded__small{
+    margin-right: 20px;
+  }
+}

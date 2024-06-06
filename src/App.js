@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.scss";
+import { useFirebaseApp } from "reactfire";
+import { Auth } from "./components/pages/login/Auth";
+import "../src/assets/scss/main.scss";
+import { useEffect, useState } from "react";
+import { Home } from "./components/pages/home/Home";
 function App() {
+  const firebase = useFirebaseApp();
+  const [login, setLogin] = useState(false);
+
+  console.log("hola", firebase);
+  useEffect(()=>{
+    let user = localStorage.getItem('user');
+    if (user) {
+      setLogin(true)
+    } else {
+      setLogin(false)
+    }
+  },[])
+  const stateLogin = (e) => {
+    setLogin(e);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>{!login && <Auth stateLogin={stateLogin} />}</div>
+      <div>{login && <Home stateLogin={stateLogin} />}</div>
     </div>
   );
 }
