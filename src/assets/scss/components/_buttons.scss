@@ -22,6 +22,15 @@
   padding: 22px 38px;
   @extend .btn;
 }
+.btn-semiround {
+  height: 3.6875rem;
+  width: 3.6875rem;
+  border-radius: 16px;
+  color: #777777;
+  :active{
+    background: #1F1F31;
+  }
+}
 .btn-rounded {
   height: 5.0625rem;
   width: 5.0625rem;

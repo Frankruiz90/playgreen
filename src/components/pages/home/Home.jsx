@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardComponent } from "../../organism/Card/CardComponent";
+import './Home.scss'
 
 // const baseURL = 'https://apimocha.com/playgreen/sports';
 
@@ -79,7 +80,7 @@ export const Home = () => {
         
     //   // }, []);
 
-  return <div>
-     <div> <CardComponent sports={sports}></CardComponent> </div> 
+  return <div className="container-home">
+     <div className="home-card"> <CardComponent sports={sports}></CardComponent> </div> 
   </div>;
 };
