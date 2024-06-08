@@ -1,7 +1,7 @@
 @import '../src/assets/scss/main.scss';
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   padding: 30px 0;
@@ -30,6 +30,14 @@
   color: white;
 }
 
+.container-components {
+  display: flex;
+    max-width: 390px;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -42,3 +50,4 @@
     transform: rotate(360deg);
   }
 }
+
