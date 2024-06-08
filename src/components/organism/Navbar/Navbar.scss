@@ -1,0 +1,16 @@
+.nav {
+  width: 100%;
+  text-align: -webkit-center;
+  &-container {
+    display: flex;
+    max-width: 21.6875rem;
+    height: 85px;
+    justify-content: space-around;
+    align-items: center;
+    background: #2c2b3e;
+    border-radius: 24px;
+    .active {
+      background: #1f1f31;
+    }
+  }
+}

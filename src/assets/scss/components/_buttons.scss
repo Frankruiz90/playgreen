@@ -4,7 +4,7 @@
   color: $white-icons;
   border: 0;
   text-decoration: none;
-  box-shadow: 0px 4px 30px 0px #2269FBCC;
+  box-shadow: 0px 4px 30px 0px #2269fbcc;
 
   cursor: pointer;
   &:hover {
@@ -27,8 +27,11 @@
   width: 3.6875rem;
   border-radius: 16px;
   color: #777777;
-  :active{
-    background: #1F1F31;
+  align-content: center;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    background: #1f1f31;
   }
 }
 .btn-rounded {
