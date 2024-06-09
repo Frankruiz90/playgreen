@@ -1,0 +1,10 @@
+.container-small {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__text {
+    color: white;
+    text-align: left;
+  }
+}
