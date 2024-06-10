@@ -14,7 +14,11 @@ export const Auth = ({ stateLogin }) => {
   const [createAccount, setCreateAccount] = useState(false);
 
   const submit = async () => {
-    await createUserWithEmailAndPassword(auth, email, password);
+    await createUserWithEmailAndPassword(auth, email, password).then((data)=>{
+      if (data.user.accessToken) {
+        setCreateAccount(!createAccount)
+      }
+    });
   };
   const login = async () => {
     await signInWithEmailAndPassword(auth, email, password)
@@ -25,7 +29,7 @@ export const Auth = ({ stateLogin }) => {
       })
       .catch(function (error) {
         console.log(error);
-        window.alert("Correo o contraseña erronea");
+        window.alert("Wrong username or password! ");
       });
   };
   return (
