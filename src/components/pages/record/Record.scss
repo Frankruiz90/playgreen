@@ -1,8 +1,18 @@
 .container-small {
-  width: 100%;
+  width: 390px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
+  &__return {
+    width: 100%;
+    text-align: left;
+    margin-top: 54px;
+  }
+
   &__text {
     color: white;
     text-align: left;

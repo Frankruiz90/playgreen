@@ -1,10 +1,13 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useContext, useRef } from "react";
 import TinderCard from "react-tinder-card";
 import "./CardComponent.scss";
 import heart from "../../../assets/img/Heart.svg";
 import vector from "../../../assets/img/Vector.svg";
 import { doc, setDoc } from "firebase/firestore";
-import {  db } from "../../../firebase-config";
+import { db } from "../../../firebase-config";
+import { ClassContext } from "../../../ClassContext";
+import ligth from "../../../assets/img/light.png";
+import dark from "../../../assets/img/dark.png";
 
 export const CardComponent = ({ sports }) => {
   const [currentIndex, setCurrentIndex] = useState(sports.length - 1);
@@ -12,7 +15,9 @@ export const CardComponent = ({ sports }) => {
 
   const docFire = doc;
   const setDocFire = setDoc;
+  const { isActive } = useContext(ClassContext);
 
+  const { toggleClass } = useContext(ClassContext);
   const sendDb = async (id, name, url, state) => {
     const ref = localStorage.getItem("user");
     await setDocFire(docFire(db, ref, id), {
@@ -44,7 +49,6 @@ export const CardComponent = ({ sports }) => {
   };
 
   const outOfFrame = (name, idx) => {
-    console.log("me llamo");
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
   };
 
@@ -52,7 +56,6 @@ export const CardComponent = ({ sports }) => {
     if (canSwipe && currentIndex <= sports.length) {
       await childRefs[currentIndex].current.swipe(dir);
       await sendDb(id, name, url, state);
-      console.log(sports);
     }
   };
 
@@ -83,12 +86,18 @@ export const CardComponent = ({ sports }) => {
                 }}
                 className="card"
               >
+                <div className="card-container__light">
+                  <button onClick={toggleClass}>
+                    <img src={isActive ? dark : ligth} alt="" />
+                  </button>
+                </div>
+
                 <div className="card-title">
                   <h3>{sport.strSport}</h3>
                 </div>
               </div>
             </TinderCard>
-            <div className="buttons" >
+            <div className="buttons">
               <button
                 style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
                 onClick={() =>
