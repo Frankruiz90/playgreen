@@ -31,7 +31,7 @@ export const Auth = ({ stateLogin }) => {
   return (
     <div className="container-auth">
       <div className="container-auth__title">
-        <h3>Welcome</h3>
+        <h2>Welcome</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
           sequi similique minima.

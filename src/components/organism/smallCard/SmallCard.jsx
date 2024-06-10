@@ -1,7 +1,7 @@
 import React from "react";
 import "./SmallCard.scss";
-import dislike from '../../../assets/img/dislike.svg'
-import like from '../../../assets/img/like.svg'
+import dislike from "../../../assets/img/dislike.svg";
+import like from "../../../assets/img/like.svg";
 
 export default function SmallCard({ data }) {
   return (
@@ -13,12 +13,10 @@ export default function SmallCard({ data }) {
         }}
       >
         {" "}
-        <p>{data.name}</p>{" "}
-      <pre>{}</pre>
+        <p>{data.name}</p> <pre>{}</pre>
       </div>
       <div className="contaner-small__img">
-        <img src={data.state === 'dislike'?  dislike : like} alt="" />
-
+        <img src={data.state === "dislike" ? dislike : like} alt="" />
       </div>
     </div>
   );
