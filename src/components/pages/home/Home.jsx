@@ -24,7 +24,6 @@ export function Home() {
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <div className="container-home">
       <div className="home-card">
