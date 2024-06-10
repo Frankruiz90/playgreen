@@ -10,7 +10,7 @@ export function Home() {
     try {
       const data = [];
       await axios
-        .get("https://apimocha.com/playgreen/sports")
+        .get("https://dff6kz4nmb.execute-api.us-east-1.amazonaws.com/development/test-front")
         .then((response) => {
           response.data.sports.forEach((doc) => {
             data.push(doc);
