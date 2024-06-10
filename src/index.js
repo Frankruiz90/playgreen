@@ -4,15 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { FirebaseAppProvider } from "reactfire";
-import  {firebaseConfig}  from "./firebase-config";
-import './firebase-config'
+import { firebaseConfig } from "./firebase-config";
+import "./firebase-config";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Suspense>
       <React.StrictMode>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </React.StrictMode>
     </Suspense>
   </FirebaseAppProvider>

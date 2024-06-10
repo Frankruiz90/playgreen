@@ -1,31 +1,21 @@
 import "./App.scss";
-import { useFirebaseApp } from "reactfire";
-import { Auth } from "./components/pages/login/Auth";
 import "../src/assets/scss/main.scss";
-import { useEffect, useState } from "react";
-import { Home } from "./components/pages/home/Home";
+import { RoutsApp } from "./routes/RoutsApp";
+import { Suspense } from "react";
+import Loading from "./components/organism/loading/Loading";
+import { ClaseProvider } from "./ClassContext";
+
 function App() {
-  const firebase = useFirebaseApp();
-  const [login, setLogin] = useState(false);
-
-  console.log("hola", firebase);
-  useEffect(()=>{
-    let user = localStorage.getItem('user');
-    if (user) {
-      setLogin(true)
-    } else {
-      setLogin(false)
-    }
-  },[])
-  const stateLogin = (e) => {
-    setLogin(e);
-  };
-
   return (
-    <div className="App">
-      <div>{!login && <Auth stateLogin={stateLogin} />}</div>
-      <div>{login && <Home stateLogin={stateLogin} />}</div>
-    </div>
+    <ClaseProvider>
+      <div className={"App"}>
+        <div className="container-components">
+          <Suspense fallback={<Loading />}>
+            <RoutsApp />
+          </Suspense>
+        </div>
+      </div>
+    </ClaseProvider>
   );
 }
 

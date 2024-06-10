@@ -1,19 +1,23 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useContext, useRef } from "react";
 import TinderCard from "react-tinder-card";
 import "./CardComponent.scss";
 import heart from "../../../assets/img/Heart.svg";
 import vector from "../../../assets/img/Vector.svg";
-import { doc, setDoc, getFirestore } from "firebase/firestore";
-import { app, db } from "../../../firebase-config";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase-config";
+import { ClassContext } from "../../../ClassContext";
+import ligth from "../../../assets/img/light.png";
+import dark from "../../../assets/img/dark.png";
 
 export const CardComponent = ({ sports }) => {
   const [currentIndex, setCurrentIndex] = useState(sports.length - 1);
   const currentIndexRef = useRef(currentIndex);
 
-  const dbFire = getFirestore(app);
   const docFire = doc;
   const setDocFire = setDoc;
+  const { isActive } = useContext(ClassContext);
 
+  const { toggleClass } = useContext(ClassContext);
   const sendDb = async (id, name, url, state) => {
     const ref = localStorage.getItem("user");
     await setDocFire(docFire(db, ref, id), {
@@ -38,23 +42,20 @@ export const CardComponent = ({ sports }) => {
   };
   const canSwipe = currentIndex >= 0;
   const swiped = async (direction, id, name, url, index) => {
-    const state = direction == "right" ? "like" : "dislike";
     updateCurrentIndex(index - 1);
+    const state = direction === "right" ? "like" : "dislike";
     await sendDb(id, name, url, state);
     sports.pop();
   };
 
   const outOfFrame = (name, idx) => {
-    console.log("me llamo");
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
   };
 
   const swipe = async (id, name, url, state, dir) => {
     if (canSwipe && currentIndex <= sports.length) {
-      console.log(childRefs[currentIndex]);
       await childRefs[currentIndex].current.swipe(dir);
       await sendDb(id, name, url, state);
-      console.log(sports);
     }
   };
 
@@ -85,6 +86,12 @@ export const CardComponent = ({ sports }) => {
                 }}
                 className="card"
               >
+                <div className="card-container__light">
+                  <button onClick={toggleClass}>
+                    <img src={isActive ? dark : ligth} alt="" />
+                  </button>
+                </div>
+
                 <div className="card-title">
                   <h3>{sport.strSport}</h3>
                 </div>

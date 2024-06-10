@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import "./Auth.scss";
+import { NavLink } from "react-router-dom";
 
 export const Auth = ({ stateLogin }) => {
   const auth = getAuth();
@@ -19,7 +20,6 @@ export const Auth = ({ stateLogin }) => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((data) => {
         if (data.user) {
-          stateLogin(true);
           localStorage.setItem("user", JSON.stringify(data.user.email));
         }
       })
@@ -31,7 +31,7 @@ export const Auth = ({ stateLogin }) => {
   return (
     <div className="container-auth">
       <div className="container-auth__title">
-        <h3>Welcome</h3>
+        <h2>Welcome</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
           sequi similique minima.
@@ -60,9 +60,11 @@ export const Auth = ({ stateLogin }) => {
             />
           </div>
           <div className="container-input__button">
-            <button className="btn-large" onClick={login}>
-              Login
-            </button>
+            <NavLink to="/home">
+              <button className="btn-large" onClick={login}>
+                Login
+              </button>
+            </NavLink>
           </div>
         </div>
       )}
