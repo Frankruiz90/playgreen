@@ -86,17 +86,12 @@ export const CardComponent = ({ sports }) => {
                 }}
                 className="card"
               >
-                <div className="card-container__light">
-                  <button onClick={toggleClass}>
-                    <img src={isActive ? dark : ligth} alt="" />
-                  </button>
-                </div>
-
                 <div className="card-title">
                   <h3>{sport.strSport}</h3>
                 </div>
               </div>
             </TinderCard>
+
             <div className="buttons">
               <button
                 style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
@@ -130,6 +125,11 @@ export const CardComponent = ({ sports }) => {
                 className="btn-rounded"
               >
                 <img src={heart} alt="like"></img>
+              </button>
+            </div>
+            <div className="card-container__light">
+              <button onClick={toggleClass}>
+                <img src={isActive ? dark : ligth} alt="" />
               </button>
             </div>
           </div>
