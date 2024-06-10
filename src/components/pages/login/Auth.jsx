@@ -29,7 +29,7 @@ export const Auth = ({ stateLogin }) => {
       })
       .catch(function (error) {
         console.log(error);
-        window.alert("Correo o contraseña erronea");
+        window.alert("Wrong username or password! ");
       });
   };
   return (
